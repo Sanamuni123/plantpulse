@@ -9,7 +9,7 @@ PlantPulse turns raw machine telemetry and production logs in **Snowflake** into
 3. **Predicts** failures: a 0–100 risk score and an estimate of the days left before vibration reaches the 6.5 mm/s alarm limit.
 4. **Acts**: a Reliability Copilot built on **Snowflake Cortex `COMPLETE`** answers plain-English questions and drafts maintenance work orders using only the plant's data.
 
-> **Live demo:** _see the deployed link in the submission_. With no Snowflake credentials, the app runs in **demo mode**: it generates the same synthetic data in-app with the same formulas as the SQL. Add Snowflake secrets and it switches to live Snowflake views and Cortex.
+> **Live demo:** https://sanamuni123.github.io/plantpulse/ (runs fully in your browser via stlite; first load takes ~30–60 s). With no Snowflake credentials, the app runs in **demo mode**: it generates the same synthetic data in-app with the same formulas as the SQL. Add Snowflake secrets and it switches to live Snowflake views and Cortex.
 
 ![Overview](docs/screenshots/overview.jpg)
 
