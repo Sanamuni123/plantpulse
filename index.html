@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PlantPulse – Factory Uptime</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@stlite/browser@1.9.2/build/stlite.css" />
+    <style>
+      #loading { font-family: system-ui, sans-serif; text-align: center; margin-top: 20vh; color: #555; }
+    </style>
+  </head>
+  <body>
+    <!-- Static deployment: the Streamlit app runs fully in the browser (stlite/Pyodide) in demo mode. -->
+    <div id="root"><p id="loading">🏭 Loading PlantPulse… (first load takes ~20–40 s while Python starts in your browser)</p></div>
+    <script type="module">
+      import { mount } from "https://cdn.jsdelivr.net/npm/@stlite/browser@1.9.2/build/stlite.js";
+      mount(
+        {
+          requirements: ["plotly"],
+          entrypoint: "app.py",
+          files: {
+            "app.py": { url: "./app/app.py" },
+            "plantpulse_core.py": { url: "./app/plantpulse_core.py" },
+            ".streamlit/config.toml": { url: "./.streamlit/config.toml" },
+          },
+          streamlitConfig: { "client.toolbarMode": "viewer" },
+        },
+        document.getElementById("root"),
+      );
+    </script>
+  </body>
+</html>
